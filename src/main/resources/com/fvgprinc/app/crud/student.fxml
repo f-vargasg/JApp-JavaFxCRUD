@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="441.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="com.fvgprinc.app.crud.StudentController">
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fvgprinc.app.crud.StudentController">
    <children>
       <GridPane layoutX="20.0" layoutY="30.0" prefHeight="90.0" prefWidth="98.0">
         <columnConstraints>
@@ -38,23 +37,23 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField />
-            <TextField GridPane.rowIndex="1" />
-            <TextField GridPane.rowIndex="2" />
+            <TextField fx:id="fieldFirstName" />
+            <TextField fx:id="fieldMiddleName" GridPane.rowIndex="1" />
+            <TextField fx:id="fieldLastName" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button layoutX="69.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="New" />
-      <Button layoutX="147.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Save" />
-      <Button layoutX="221.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Update" />
-      <Button layoutX="316.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Detele" />
+      <Button fx:id="btnNew" layoutX="69.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="New" />
+      <Button fx:id="btnSave" layoutX="147.0" layoutY="133.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="25.0" prefWidth="56.0" text="Save" />
+      <Button fx:id="btnUpdate" layoutX="221.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Update" />
+      <Button fx:id="btnDelete" layoutX="316.0" layoutY="133.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="56.0" text="Delete" />
       <Label layoutX="31.0" layoutY="170.0" text="Search:" />
       <TextField layoutX="89.0" layoutY="166.0" prefHeight="25.0" prefWidth="337.0" promptText="Search..." />
-      <TableView layoutX="12.0" layoutY="213.0" prefHeight="205.0" prefWidth="418.0">
+      <TableView fx:id="tableView" layoutX="12.0" layoutY="213.0" onMouseClicked="#mouseClicked" prefHeight="205.0" prefWidth="418.0">
         <columns>
-          <TableColumn minWidth="0.0" prefWidth="0.0" text="C1" />
-          <TableColumn prefWidth="121.0" text="FIRST NAME" />
-            <TableColumn prefWidth="151.5" text="MIDDLE NAME" />
-            <TableColumn prefWidth="115.5" text="LAST NAME" />
+          <TableColumn fx:id="colId" minWidth="0.0" prefWidth="5.5" text="C1" />
+          <TableColumn fx:id="colFirstName" prefWidth="115.5" text="FIRST NAME" />
+            <TableColumn fx:id="colMiddleName" prefWidth="151.5" text="MIDDLE NAME" />
+            <TableColumn fx:id="colLastName" prefWidth="115.5" text="LAST NAME" />
         </columns>
       </TableView>
    </children>
