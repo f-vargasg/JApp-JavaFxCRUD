@@ -100,9 +100,57 @@ public class StudentController implements Initializable {
             fieldLastName.setText(student.getLastName());
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
+            btnNew.setDisable(true);
+            btnSave.setDisable(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @FXML
+    private void updateStudent() {
+        try {
+            AppQuery query = new AppQuery();
+            Student student = new Student(this.student.getId(), fieldFirstName.getText(),
+                    fieldMiddleName.getText(), fieldLastName.getText());
+            query.updateStudent(student);
+            showStudents();
+            clearFields();
+            btnUpdate.setDisable(true);
+            btnDelete.setDisable(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void deleteStudent() {
+        try {
+            AppQuery query = new AppQuery();
+            Student student = new Student(this.student.getId(), fieldFirstName.getText(),
+                    fieldMiddleName.getText(), fieldLastName.getText());
+            query.deleteStudent(student);
+            showStudents();
+            clearFields();
+            btnUpdate.setDisable(true);
+            btnDelete.setDisable(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void clearFields() {
+        fieldFirstName.setText("");
+        fieldMiddleName.setText("");
+        fieldLastName.setText("");
+    }
+
+    @FXML
+    private void clickNew() {
+        btnUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+        clearFields();
+        btnSave.setDisable(false);
     }
 
 }
