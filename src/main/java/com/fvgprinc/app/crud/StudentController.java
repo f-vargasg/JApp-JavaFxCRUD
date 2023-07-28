@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -32,12 +33,14 @@ import javafx.stage.Modality;
  */
 public class StudentController implements Initializable {
 
+    private static Stage stage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showStudents();
         btnUpdate.setDisable(true);
         btnDelete.setDisable(true);
-        fieldSearch.textProperty().addListener((ObservableList, oldValue, newValue) ->{
+        fieldSearch.textProperty().addListener((ObservableList, oldValue, newValue) -> {
             filterData(newValue);
         });
     }
@@ -89,6 +92,7 @@ public class StudentController implements Initializable {
         dialog.setTitle("Add Confirmation");
         dialog.setHeaderText("Are you sure you want to save ?");
         dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initOwner(getStage());
         Label label = new Label("Name: " + fieldFirstName.getText() + "  " + fieldLastName.getText());
         dialog.getDialogPane().setContent(label);
         ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
@@ -140,6 +144,7 @@ public class StudentController implements Initializable {
             dialog.setTitle("Update Confirmation");
             dialog.setHeaderText("Are you sure you want to update ?");
             dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(getStage());
             Label label = new Label("Name: " + fieldFirstName.getText() + "  " + fieldLastName.getText());
             dialog.getDialogPane().setContent(label);
             ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
@@ -168,6 +173,7 @@ public class StudentController implements Initializable {
             dialog.setTitle("Delete Confirmation");
             dialog.setHeaderText("Are you sure you want to Delete ?");
             dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initOwner(getStage());
             Label label = new Label("Name: " + fieldFirstName.getText() + "  " + fieldLastName.getText());
             dialog.getDialogPane().setContent(label);
             ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
@@ -215,5 +221,19 @@ public class StudentController implements Initializable {
             }
         }
         tableView.setItems(filterData);
+    }
+
+    /**
+     * @return the stage
+     */
+    public static Stage getStage() {
+        return stage;
+    }
+
+    /**
+     * @param aStage the stage to set
+     */
+    public static void setStage(Stage aStage) {
+        stage = aStage;
     }
 }

@@ -14,11 +14,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private StudentController sController = new StudentController();
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("student"), 640, 480);
         stage.setTitle("Java Fx CRUD Application");
+        sController.setStage(stage);
         stage.setScene(scene);
         stage.show();
     }

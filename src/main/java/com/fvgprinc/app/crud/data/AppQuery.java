@@ -10,8 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javax.sql.StatementEvent;
+
 
 /**
  *
