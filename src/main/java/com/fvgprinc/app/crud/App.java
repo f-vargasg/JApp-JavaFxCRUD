@@ -1,6 +1,5 @@
 package com.fvgprinc.app.crud;
 
-import com.fvgprinc.app.crud.data.DBConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

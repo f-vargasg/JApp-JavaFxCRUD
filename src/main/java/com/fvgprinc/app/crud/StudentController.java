@@ -100,7 +100,6 @@ public class StudentController implements Initializable {
             fieldLastName.setText(student.getLastName());
             btnUpdate.setDisable(false);
             btnDelete.setDisable(false);
-            btnNew.setDisable(true);
             btnSave.setDisable(true);
         } catch (Exception ex) {
             ex.printStackTrace();
